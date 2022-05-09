@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 // this will need to be async.
@@ -10,7 +9,7 @@ void main() async {
           'https://813c028c4b4741bcbd0830c06182d7b0@o169585.ingest.sentry.io/3260779';
     },
     // Init your App.
-    appRunner: () => runApp(MyApp()),
+    appRunner: () => runApp(const MyApp()),
   );
 }
 
