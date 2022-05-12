@@ -46,7 +46,19 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
       Sentry.captureMessage("Increment Stored:" + _counter.toString());
+      
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    final additionalData = {
+      'developer': 'Brad',
+      'channel': 'Alpha',
+      'server': 'dev',
+    };
+    Sentry.configureScope((scope) => scope.setContexts('environment', additionalData));    
   }
 
   @override
@@ -73,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
