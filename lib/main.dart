@@ -42,10 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    Sentry.addBreadcrumb(Breadcrumb(message: "_incrementCounter"));
+    Sentry.addBreadcrumb(Breadcrumb(message: "inside  incrementCounter"));
     setState(() {
       _counter++;
-      Sentry.captureMessage("Increment Stored:" + _counter.toString());
+      Sentry.captureMessage("setState Increment Stored:" + _counter.toString());
       
     });
   }
@@ -54,8 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     final additionalData = {
-      'developer': 'Brad',
-      'channel': 'Alpha',
+      'developer': 'Brad.',
+      'channel': 'Dev',
       'server': 'dev',
     };
     Sentry.configureScope((scope) => scope.setContexts('environment', additionalData));    
